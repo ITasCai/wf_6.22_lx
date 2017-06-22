@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstshow = new System.Windows.Forms.ListBox();
             this.lblid = new System.Windows.Forms.Label();
             this.txtid = new System.Windows.Forms.TextBox();
             this.lblname = new System.Windows.Forms.Label();
@@ -36,21 +36,24 @@
             this.lblsex = new System.Windows.Forms.Label();
             this.comsex = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnadd = new System.Windows.Forms.Button();
+            this.bthxg = new System.Windows.Forms.Button();
+            this.bthdelete = new System.Windows.Forms.Button();
+            this.bthon = new System.Windows.Forms.Button();
+            this.txtbz = new System.Windows.Forms.TextBox();
+            this.lblage = new System.Windows.Forms.Label();
+            this.txtage = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // listBox1
+            // lstshow
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(260, 88);
-            this.listBox1.TabIndex = 0;
+            this.lstshow.FormattingEnabled = true;
+            this.lstshow.ItemHeight = 12;
+            this.lstshow.Location = new System.Drawing.Point(12, 12);
+            this.lstshow.Name = "lstshow";
+            this.lstshow.Size = new System.Drawing.Size(364, 88);
+            this.lstshow.TabIndex = 0;
+            this.lstshow.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // lblid
             // 
@@ -63,8 +66,10 @@
             // 
             // txtid
             // 
+            this.txtid.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtid.Location = new System.Drawing.Point(84, 113);
             this.txtid.Name = "txtid";
+            this.txtid.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtid.Size = new System.Drawing.Size(100, 21);
             this.txtid.TabIndex = 2;
             // 
@@ -107,66 +112,90 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 227);
+            this.label1.Location = new System.Drawing.Point(12, 253);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 7;
             this.label1.Text = "备注";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox1
+            // btnadd
             // 
-            this.textBox1.Location = new System.Drawing.Point(84, 227);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 52);
-            this.textBox1.TabIndex = 8;
+            this.btnadd.Location = new System.Drawing.Point(60, 340);
+            this.btnadd.Name = "btnadd";
+            this.btnadd.Size = new System.Drawing.Size(75, 23);
+            this.btnadd.TabIndex = 9;
+            this.btnadd.Text = "添加";
+            this.btnadd.UseVisualStyleBackColor = true;
+            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
             // 
-            // button1
+            // bthxg
             // 
-            this.button1.Location = new System.Drawing.Point(43, 319);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "btnadd";
-            this.button1.UseVisualStyleBackColor = true;
+            this.bthxg.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.bthxg.Location = new System.Drawing.Point(246, 340);
+            this.bthxg.Name = "bthxg";
+            this.bthxg.Size = new System.Drawing.Size(75, 23);
+            this.bthxg.TabIndex = 10;
+            this.bthxg.Text = "修改";
+            this.bthxg.UseVisualStyleBackColor = true;
+            this.bthxg.Click += new System.EventHandler(this.bthxg_Click);
             // 
-            // button2
+            // bthdelete
             // 
-            this.button2.Location = new System.Drawing.Point(179, 318);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bthdelete.Location = new System.Drawing.Point(60, 382);
+            this.bthdelete.Name = "bthdelete";
+            this.bthdelete.Size = new System.Drawing.Size(75, 23);
+            this.bthdelete.TabIndex = 11;
+            this.bthdelete.Text = "删除";
+            this.bthdelete.UseVisualStyleBackColor = true;
+            this.bthdelete.Click += new System.EventHandler(this.bthdelete_Click);
             // 
-            // button3
+            // bthon
             // 
-            this.button3.Location = new System.Drawing.Point(43, 379);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.bthon.Location = new System.Drawing.Point(246, 382);
+            this.bthon.Name = "bthon";
+            this.bthon.Size = new System.Drawing.Size(75, 23);
+            this.bthon.TabIndex = 12;
+            this.bthon.Text = "退出";
+            this.bthon.UseVisualStyleBackColor = true;
+            this.bthon.Click += new System.EventHandler(this.bthon_Click);
             // 
-            // button4
+            // txtbz
             // 
-            this.button4.Location = new System.Drawing.Point(179, 379);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.txtbz.Location = new System.Drawing.Point(84, 253);
+            this.txtbz.Multiline = true;
+            this.txtbz.Name = "txtbz";
+            this.txtbz.Size = new System.Drawing.Size(274, 52);
+            this.txtbz.TabIndex = 8;
+            // 
+            // lblage
+            // 
+            this.lblage.AutoSize = true;
+            this.lblage.Location = new System.Drawing.Point(14, 218);
+            this.lblage.Name = "lblage";
+            this.lblage.Size = new System.Drawing.Size(29, 12);
+            this.lblage.TabIndex = 14;
+            this.lblage.Text = "年龄";
+            // 
+            // txtage
+            // 
+            this.txtage.Location = new System.Drawing.Point(84, 218);
+            this.txtage.Name = "txtage";
+            this.txtage.Size = new System.Drawing.Size(100, 21);
+            this.txtage.TabIndex = 15;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 417);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(388, 417);
+            this.Controls.Add(this.txtage);
+            this.Controls.Add(this.lblage);
+            this.Controls.Add(this.bthon);
+            this.Controls.Add(this.bthdelete);
+            this.Controls.Add(this.bthxg);
+            this.Controls.Add(this.btnadd);
+            this.Controls.Add(this.txtbz);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comsex);
             this.Controls.Add(this.lblsex);
@@ -174,9 +203,11 @@
             this.Controls.Add(this.lblname);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.lblid);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstshow);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Form1";
             this.Text = "学生管理系统";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,7 +215,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstshow;
         private System.Windows.Forms.Label lblid;
         private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.Label lblname;
@@ -192,11 +223,13 @@
         private System.Windows.Forms.Label lblsex;
         private System.Windows.Forms.ComboBox comsex;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnadd;
+        private System.Windows.Forms.Button bthxg;
+        private System.Windows.Forms.Button bthdelete;
+        private System.Windows.Forms.Button bthon;
+        private System.Windows.Forms.TextBox txtbz;
+        private System.Windows.Forms.Label lblage;
+        private System.Windows.Forms.TextBox txtage;
     }
 }
 
