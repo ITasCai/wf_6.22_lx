@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace wf_6._22_lx
+namespace StudentManager
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace wf_6._22_lx
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            Application.Run(new Form1());
         }
     }
 }

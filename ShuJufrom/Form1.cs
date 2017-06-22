@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace wf_6._22_lx
+namespace ShuJufrom
 {
     public partial class Form1 : Form
     {
